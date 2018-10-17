@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.IO;
 using IotReferenceArchitectureFunctions.Model;
 using Microsoft.Extensions.Configuration;
@@ -17,7 +15,11 @@ namespace IotReferenceArchitectureFunctions
         public static void Main(string[] args)
         {
             UploadToStructurizr();
-            RenderInfrastructure("dev");
+
+            if (args.Length == 1)
+            {
+                RenderInfrastructure(args[0]);
+            }
         }
 
 
