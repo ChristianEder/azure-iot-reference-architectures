@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using IotReferenceArchitectureFunctions.Model;
 using Microsoft.Extensions.Configuration;
 using Structurizr;
@@ -14,20 +15,20 @@ namespace IotReferenceArchitectureFunctions
     {
         public static void Main(string[] args)
         {
-            UploadToStructurizr();
+            UploadToStructurizr(args);
 
             if (args.Length == 1)
             {
-                RenderInfrastructure(args[0]);
+                RenderInfrastructure(args);
             }
         }
 
 
-        private static void UploadToStructurizr()
+        private static void UploadToStructurizr(string[] args)
         {
             var workspace = ArchitectureModel(new InfrastructureEnvironment("prod"));
 
-            var configuration = Configuration();
+            var configuration = Configuration(args);
             var client = new StructurizrClient(configuration["Structurizr:Key"], configuration["Structurizr:Secret"])
             {
                 WorkspaceArchiveLocation = null
@@ -35,10 +36,10 @@ namespace IotReferenceArchitectureFunctions
             client.PutWorkspace(int.Parse(configuration["Structurizr:WorkspaceId"]), workspace);
         }
 
-        private static void RenderInfrastructure(string environmentName)
+        private static void RenderInfrastructure(string[] args)
         {
-            var configuration = Configuration();
-            var environment = Environment(environmentName, configuration);
+            var configuration = Configuration(args);
+            var environment = Environment(configuration["environment"], configuration);
             var monkeyFactory = InfrastructureModel(environment);
 
             var renderer = Renderer(environment, configuration);
@@ -123,12 +124,14 @@ namespace IotReferenceArchitectureFunctions
             return workspace;
         }
 
-        private static IConfigurationRoot Configuration()
+        private static IConfigurationRoot Configuration(string[] args)
         {
-            return new ConfigurationBuilder().AddJsonFile(
+            return new ConfigurationBuilder()
+                .AddJsonFile(
                     Path.Combine("appsettings.json.user"),
-                    optional: false,
+                    optional: true,
                     reloadOnChange: false)
+                .AddCommandLine(args)
                 .Build();
         }
     }
