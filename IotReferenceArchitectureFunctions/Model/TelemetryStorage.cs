@@ -6,10 +6,10 @@ namespace IotReferenceArchitectureFunctions.Model
 {
     public class TelemetryStorage : ContainerWithInfrastructure<StorageAccount>
     {
-        public TelemetryStorage(IotReferenceArchitectureWithFunctions iotReferenceArchitectureWithFunctions,
+        public TelemetryStorage(CloudBackend cloudBackend,
             IInfrastructureEnvironment environment)
         {
-            Container = iotReferenceArchitectureWithFunctions.System.AddContainer(
+            Container = cloudBackend.System.AddContainer(
                 name: "Telemetry Storage",
                 description: "Stores all telemetry data from the devices",
                 technology: "Azure Table Storage");

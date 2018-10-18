@@ -6,14 +6,14 @@ namespace IotReferenceArchitectureFunctions.Model
 {
     public class Ingress : ContainerWithInfrastructure<FunctionAppService>
     {
-        public Ingress(IotReferenceArchitectureWithFunctions iotReferenceArchitectureWithFunctions, CloudGateway hub,
+        public Ingress(CloudBackend cloudBackend, CloudGateway hub,
             TelemetryStorage telemetryStorage,
             MasterDataStorage masterDataStorage,
             SanitizedMessages sanitizedMessages,
             ApplicationInsights applicationInsights, 
             IInfrastructureEnvironment environment)
         {
-            Container = iotReferenceArchitectureWithFunctions.System.AddContainer(
+            Container = cloudBackend.System.AddContainer(
                 name: "Ingress",
                 description: "Receives incoming data from the cloud gateway and saves it into master data and telemetry data storages",
                 technology: "Azure Function");

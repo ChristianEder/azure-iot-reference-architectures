@@ -7,9 +7,9 @@ namespace IotReferenceArchitectureFunctions.Model
 {
     public class UserInterface : ContainerWithInfrastructure<WebAppService>
     {
-        public UserInterface(IotReferenceArchitectureWithFunctions iotReferenceArchitectureWithFunctions, RestApi restApi, IInfrastructureEnvironment environment)
+        public UserInterface(CloudBackend cloudBackend, RestApi restApi, IInfrastructureEnvironment environment)
         {
-            Container = iotReferenceArchitectureWithFunctions.System.AddContainer(
+            Container = cloudBackend.System.AddContainer(
                 name: "User interface",
                 description: "Visualizes the data, dashboarding etc.",
                 technology: "Azure App Service");

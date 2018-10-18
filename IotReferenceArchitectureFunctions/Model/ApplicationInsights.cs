@@ -6,11 +6,11 @@ namespace IotReferenceArchitectureFunctions.Model
     public class ApplicationInsights : ContainerWithInfrastructure<Structurizr.InfrastructureAsCode.Azure.Model.ApplicationInsights>
     {
 
-        public ApplicationInsights(IotReferenceArchitectureWithFunctions iotReferenceArchitectureWithFunctions, 
+        public ApplicationInsights(CloudBackend cloudBackend, 
             IInfrastructureEnvironment environment)
         {
 
-            Container = iotReferenceArchitectureWithFunctions.System.AddContainer(
+            Container = cloudBackend.System.AddContainer(
                 name: "Application Insights",
                 description: "Serves as a logging target and monitoring tool",
                 technology: "Azure Application Insights");

@@ -6,10 +6,10 @@ namespace IotReferenceArchitectureFunctions.Model
 {
     public class SecretStorage : ContainerWithInfrastructure<KeyVault>
     {
-        public SecretStorage(IotReferenceArchitectureWithFunctions iotReferenceArchitectureWithFunctions,
+        public SecretStorage(CloudBackend cloudBackend,
             IInfrastructureEnvironment environment)
         {
-            Container = iotReferenceArchitectureWithFunctions.System.AddContainer(
+            Container = cloudBackend.System.AddContainer(
                 "Secret storage",
                 "Stores secrets that other services require to access each other",
                 "Azure Key Vault");

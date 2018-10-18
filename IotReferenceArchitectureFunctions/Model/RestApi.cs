@@ -6,9 +6,9 @@ namespace IotReferenceArchitectureFunctions.Model
 {
     public class RestApi : ContainerWithInfrastructure<WebAppService>
     {
-        public RestApi(IotReferenceArchitectureWithFunctions iotReferenceArchitectureWithFunctions, TelemetryStorage telemetryStorage, MasterDataStorage masterDataStorage, ApplicationInsights applicationInsights, IInfrastructureEnvironment environment)
+        public RestApi(CloudBackend cloudBackend, TelemetryStorage telemetryStorage, MasterDataStorage masterDataStorage, ApplicationInsights applicationInsights, IInfrastructureEnvironment environment)
         {
-            Container = iotReferenceArchitectureWithFunctions.System.AddContainer(
+            Container = cloudBackend.System.AddContainer(
                 name: "REST Api",
                 description: "Implements endpoint required by the UI to load data",
                 technology: "Azure App Service");

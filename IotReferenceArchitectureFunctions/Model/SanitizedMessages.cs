@@ -6,9 +6,9 @@ namespace IotReferenceArchitectureFunctions.Model
 {
     public class SanitizedMessages : ContainerWithInfrastructure<EventHub>
     {
-        public SanitizedMessages(IotReferenceArchitectureWithFunctions iotReferenceArchitectureWithFunctions, EventHubNamespace eventHubNamespace, IInfrastructureEnvironment environment)
+        public SanitizedMessages(CloudBackend cloudBackend, EventHubNamespace eventHubNamespace, IInfrastructureEnvironment environment)
         {
-            Container = iotReferenceArchitectureWithFunctions.System.AddContainer(
+            Container = cloudBackend.System.AddContainer(
                 name: "Sanitized messages",
                 description: "Contains messages from devices that have been deserialized, sanitized and checked for security properties",
                 technology: "Azure Event Hub");

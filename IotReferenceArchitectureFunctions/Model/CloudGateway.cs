@@ -6,9 +6,9 @@ namespace IotReferenceArchitectureFunctions.Model
 {
     public class CloudGateway : ContainerWithInfrastructure<IoTHub>
     {
-        public CloudGateway(IotReferenceArchitectureWithFunctions iotReferenceArchitectureWithFunctions, IInfrastructureEnvironment environment)
+        public CloudGateway(CloudBackend cloudBackend, IInfrastructureEnvironment environment)
         {
-            Container = iotReferenceArchitectureWithFunctions.System.AddContainer(
+            Container = cloudBackend.System.AddContainer(
                 name: "Cloud Gateway",
                 description: "Receives incoming messages from the device",
                 technology: "Azure IoT Hub");

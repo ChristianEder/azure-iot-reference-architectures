@@ -5,9 +5,9 @@ namespace IotReferenceArchitectureFunctions.Model
 {
     public class StreamAnalytics : ContainerWithInfrastructure<Structurizr.InfrastructureAsCode.Azure.Model.StreamAnalytics>
     {
-        public StreamAnalytics(IotReferenceArchitectureWithFunctions iotReferenceArchitectureWithFunctions, SanitizedMessages sanitizedMessages, TelemetryStorage telemetryStorage, IInfrastructureEnvironment environment)
+        public StreamAnalytics(CloudBackend cloudBackend, SanitizedMessages sanitizedMessages, TelemetryStorage telemetryStorage, IInfrastructureEnvironment environment)
         {
-            Container = iotReferenceArchitectureWithFunctions.System.AddContainer(
+            Container = cloudBackend.System.AddContainer(
                 name: "Stream Analytics",
                 description: "Analyzes the incoming event stream for anomalies",
                 technology: "Azure Stream Analytics");

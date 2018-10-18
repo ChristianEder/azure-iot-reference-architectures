@@ -5,7 +5,7 @@ using Structurizr.InfrastructureAsCode.Model;
 
 namespace IotReferenceArchitectureFunctions.Model
 {
-    public class IotReferenceArchitectureWithFunctions : SoftwareSystemWithInfrastructure
+    public class CloudBackend : SoftwareSystemWithInfrastructure
     {
         public CloudGateway CloudGateway { get; }
         public DeviceProvisioning DeviceProvisioning { get; }
@@ -21,7 +21,7 @@ namespace IotReferenceArchitectureFunctions.Model
 
 
 
-        public IotReferenceArchitectureWithFunctions(Workspace workspace, IInfrastructureEnvironment environment)
+        public CloudBackend(Workspace workspace, IInfrastructureEnvironment environment)
         {
             System = workspace.Model.AddSoftwareSystem(
                 Location.Internal,
