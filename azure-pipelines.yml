@@ -30,11 +30,8 @@ steps:
     PublishSymbols: false
   continueOnError: true
   
-- task: CmdLine@1
+- script: dotnet run -- Structurizr:Key=fa8ec9d2-fdea-4663-9ff4-14be9ca80e37 Structurizr:Secret=77335096-84be-47e1-9ec2-e4f3cfd4bd41 Structurizr:WorkspaceId=40713
   displayName: 'Publish Functions architecture to Structurizr'
-  inputs:
-    filename: dotnet
-    arguments: 'run -- Structurizr:Key=fa8ec9d2-fdea-4663-9ff4-14be9ca80e37 Structurizr:Secret=77335096-84be-47e1-9ec2-e4f3cfd4bd41 Structurizr:WorkspaceId=40713'
-    workingDirectory: IotReferenceArchitectureFunctions
+  workingDirectory: IotReferenceArchitectureFunctions
 
     
