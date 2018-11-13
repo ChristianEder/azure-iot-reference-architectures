@@ -30,7 +30,7 @@ steps:
     PublishSymbols: false
   continueOnError: true
   
-- script: dotnet run -- Structurizr:Key=fa8ec9d2-fdea-4663-9ff4-14be9ca80e37 Structurizr:Secret=77335096-84be-47e1-9ec2-e4f3cfd4bd41 Structurizr:WorkspaceId=40713
+- script: dotnet run -- Structurizr:Key=$(Structurizr.Key) Structurizr:Secret=$(Structurizr.Secret) Structurizr:WorkspaceId=$(Structurizr.WorkspaceId)
   displayName: 'Publish Functions architecture to Structurizr'
   workingDirectory: IotReferenceArchitectureFunctions
 
