@@ -19,7 +19,8 @@ namespace IotReferenceArchitectureFunctions.Model
         public RestApi RestApi { get; }
         public UserInterface UserInterface { get; }
 
-
+        public SoftwareSystem Device { get; }
+        public Person User { get; }
 
         public CloudBackend(Workspace workspace, IInfrastructureEnvironment environment)
         {
@@ -46,9 +47,15 @@ namespace IotReferenceArchitectureFunctions.Model
 
             User = workspace.Model.AddPerson("User", "Person using the system to view data and take action on it");
             User.Uses(UserInterface, "View devices and their raw and aggregated data");
+            
+            StoreSecretsInKeyVault();
         }
-
-        public SoftwareSystem Device { get; }
-        public Person User { get; }
+        
+        private void StoreSecretsInKeyVault()
+        {
+            UserInterface.Infrastructure.UseStore(SecretStorage.Infrastructure);
+            RestApi.Infrastructure.UseStore(SecretStorage.Infrastructure);
+            Ingress.Infrastructure.UseStore(SecretStorage.Infrastructure);
+        }
     }
 }
