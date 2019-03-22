@@ -1,1 +1,2 @@
-![Azure IoT reference architecture using Azure functions](https://www.structurizr.com/share/40713/b175349a-065c-4c04-96e4-11e36b67872b/images/Iot%20reference%20architecture%20with%20functions%20Container%20View.png "Azure IoT reference architecture using Azure functions")
+![Alt text](Azure IoT reference architecture using Azure functions)
+<img src="./architecture.svg">
