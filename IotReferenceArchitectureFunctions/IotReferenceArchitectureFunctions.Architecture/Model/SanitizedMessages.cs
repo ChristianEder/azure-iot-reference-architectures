@@ -2,7 +2,7 @@
 using Structurizr.InfrastructureAsCode.Azure.Model;
 using Structurizr.InfrastructureAsCode.InfrastructureRendering;
 
-namespace IotReferenceArchitectureFunctions.Model
+namespace IotReferenceArchitectureFunctions.Architecture.Model
 {
     public class SanitizedMessages : ContainerWithInfrastructure<EventHub>
     {

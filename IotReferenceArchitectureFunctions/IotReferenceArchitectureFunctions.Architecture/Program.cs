@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using IotReferenceArchitectureFunctions.Model;
+using IotReferenceArchitectureFunctions.Architecture.Model;
 using Microsoft.Extensions.Configuration;
 using Structurizr;
 using Structurizr.Api;
@@ -9,7 +8,7 @@ using Structurizr.InfrastructureAsCode.Azure.InfrastructureRendering;
 using Structurizr.InfrastructureAsCode.InfrastructureRendering;
 using Structurizr.InfrastructureAsCode.Policies;
 
-namespace IotReferenceArchitectureFunctions
+namespace IotReferenceArchitectureFunctions.Architecture
 {
     public class Program
     {

@@ -3,7 +3,7 @@ using Structurizr.InfrastructureAsCode.Azure.Model;
 using Structurizr.InfrastructureAsCode.InfrastructureRendering;
 using Structurizr.InfrastructureAsCode.Model.Connectors;
 
-namespace IotReferenceArchitectureFunctions.Model
+namespace IotReferenceArchitectureFunctions.Architecture.Model
 {
     public class UserInterface : ContainerWithInfrastructure<WebAppService>
     {

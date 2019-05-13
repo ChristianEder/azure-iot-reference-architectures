@@ -1,7 +1,7 @@
 ﻿using Structurizr.InfrastructureAsCode;
 using Structurizr.InfrastructureAsCode.InfrastructureRendering;
 
-namespace IotReferenceArchitectureFunctions.Model
+namespace IotReferenceArchitectureFunctions.Architecture.Model
 {
     public class SqlServer: IHaveInfrastructure<Structurizr.InfrastructureAsCode.Azure.Model.SqlServer>
     {

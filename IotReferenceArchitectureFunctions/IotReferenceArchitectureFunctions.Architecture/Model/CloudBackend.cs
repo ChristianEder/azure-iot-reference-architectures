@@ -3,7 +3,7 @@ using Structurizr.InfrastructureAsCode;
 using Structurizr.InfrastructureAsCode.InfrastructureRendering;
 using Structurizr.InfrastructureAsCode.Model;
 
-namespace IotReferenceArchitectureFunctions.Model
+namespace IotReferenceArchitectureFunctions.Architecture.Model
 {
     public class CloudBackend : SoftwareSystemWithInfrastructure
     {
