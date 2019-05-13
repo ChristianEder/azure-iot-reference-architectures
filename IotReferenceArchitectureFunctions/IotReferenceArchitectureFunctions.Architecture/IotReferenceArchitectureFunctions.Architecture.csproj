@@ -2,9 +2,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
  <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
-    <AssemblyName>IotReferenceArchitectureFunctions</AssemblyName>
+    <AssemblyName>IotReferenceArchitectureFunctions.Architecture</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>IotReferenceArchitectureFunctions</PackageId>
+    <PackageId>IotReferenceArchitectureFunctions.Architecture</PackageId>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>

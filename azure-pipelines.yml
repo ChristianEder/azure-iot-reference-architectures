@@ -32,6 +32,6 @@ steps:
   
 - script: dotnet run -- Structurizr:Key=$(Structurizr.Key) Structurizr:Secret=$(Structurizr.Secret) Structurizr:WorkspaceId=$(Structurizr.WorkspaceId)
   displayName: 'Publish Functions architecture to Structurizr'
-  workingDirectory: IotReferenceArchitectureFunctions
+  workingDirectory: IotReferenceArchitectureFunctions\IotReferenceArchitectureFunctions.Architecture
 
     
