@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.EventHubs;
 using System.Text;
@@ -6,6 +7,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs.Extensions.Http;
 
 namespace IotReferenceArchitectureFunctions.Ingress
 {
@@ -14,10 +18,10 @@ namespace IotReferenceArchitectureFunctions.Ingress
         private static readonly Random Random = new Random();
 
         [FunctionName("OnMessage")]
-        [return: Table("telemetry", Connection = "reftelemetry-connection-string")]
-        public static async Task<DeviceTelemetryEntity> OnMessage(
+        public static async Task OnMessage(
             [EventHubTrigger("messages/events", Connection = "ref-hub-connection")]EventData message,
-            [Table("device-metadata", Connection = "reftelemetry-connection-string")] CloudTable deviceMetaData,
+            [Table("devicemetadata", Connection = "reftelemetry-connection-string")] CloudTable deviceMetaData,
+            [Table("telemetry", Connection = "reftelemetry-connection-string")] CloudTable telemetry,
             ILogger log)
         {
             var dtm = JsonConvert.DeserializeObject<DeviceTelemetryMessage>(Encoding.UTF8.GetString(message.Body.ToArray()));
@@ -33,8 +37,7 @@ namespace IotReferenceArchitectureFunctions.Ingress
             };
             entity.PartitionKey = entity.TenantId + "-" + entity.DeviceId;
             entity.RowKey = (long.MaxValue - DateTime.UtcNow.Ticks).ToString();
-
-            return entity;
+            await telemetry.ExecuteAsync(TableOperation.Insert(entity));
         }
 
         private static async Task<string> GetTenantId(string deviceId, CloudTable deviceMetaData)

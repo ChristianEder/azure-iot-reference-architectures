@@ -7,7 +7,6 @@ namespace IotReferenceArchitectureFunctions.Ingress
     {
         public string TenantId { get; set; }
         public string DeviceId { get; set; }
-        public DateTime SentAt { get; set; }
         public double Temperature { get; set; }
         public double Humidity { get; set; }
     }
