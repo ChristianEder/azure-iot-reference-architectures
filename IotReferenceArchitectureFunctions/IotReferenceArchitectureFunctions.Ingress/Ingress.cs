@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.EventHubs;
 using System.Text;
@@ -7,9 +6,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs.Extensions.Http;
 
 namespace IotReferenceArchitectureFunctions.Ingress
 {
