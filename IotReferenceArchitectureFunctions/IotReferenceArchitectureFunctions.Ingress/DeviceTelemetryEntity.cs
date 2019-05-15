@@ -9,5 +9,7 @@ namespace IotReferenceArchitectureFunctions.Ingress
         public string DeviceId { get; set; }
         public double Temperature { get; set; }
         public double Humidity { get; set; }
+
+        public string Properties { get; set; }
     }
 }
